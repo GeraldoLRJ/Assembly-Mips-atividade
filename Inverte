@@ -1,0 +1,21 @@
+.data #vetores
+a: .word  1, 2, 3, 4, 5
+b: .word
+.text
+#pegando posição base dos vetores
+la $s0, a
+la $s1, b
+addi $t1, $t1, 16
+addi $t2, $t2, 0
+
+loop:
+
+	add $t3, $t1, $s0 #$t3 pega a ultima posição de A
+	add $t5, $t2, $s1 #$t5 pega a primeira posição de B
+	lw $t4, 0($t3)#pega o valor na posição de memória
+	subi $t1, $t1, 4 # e anda 4 posição do fim para o inicio de A
+	
+	sw $t4, 0($t5)#pega o valor na posição de memória
+	addi $t2, $t2, 4 # e anda 4 posição do inicio para o fim de B
+	slt $t6,$t1, $zero  #verifica se $t1 não esta menor que 0
+	bne $t6, 1, loop # se não continua o looping

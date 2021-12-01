@@ -1,0 +1,14 @@
+.text
+#valores
+addi $s0, $s0, 16
+addi $s1, $s1, 3
+addi $t1, $t1, 1
+loop:
+
+	add $t3, $t3, $s0 #somando gradativamente o valor $s0
+	
+	sub $s1, $s1, 1 #diminuindo valor de $s1
+	
+	slt $s3,$s1, $t1 #validando se o bvalor não é menor que 0
+	bne $s3, 1, loop #enquanto não for menor que 1, faz o looping
+	

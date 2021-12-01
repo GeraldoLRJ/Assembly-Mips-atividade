@@ -1,0 +1,8 @@
+.text
+addi $s0, $zero, 16
+addi $s1, $zero, 6
+addi $s3, $zero, 7
+ 
+
+add $s5, $s0, $s1
+sub $s5, $s5, $s3

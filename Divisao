@@ -1,0 +1,14 @@
+.text
+
+addi $s0, $s0, 24 #numerador
+addi $s1, $s1, 4 #denominador
+addi $s4, $s4, 1
+add $t3, $t3, $s0
+loop:
+
+	sub $t3, $t3, $s1 #subtraindo o valor de $s0
+	
+	add $s2, $s2, 1 #resultado da divisão
+	
+	slt $s3,$t3, $s4 #validando se é menor que 1 o valor
+	bne $s3, 1, loop #enquanto não for menor executa
